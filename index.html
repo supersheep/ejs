@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejs</title>
+    <script src="./neurons/neuron/latest/neuron.js"></script>
+    <script>
+        neuron.config({
+            path:"./neurons"
+        });
+    </script>
+</head>
+<body>
+
+    <script>
+        _use("ejs",function(ejs){
+            var template = "<p><%=: users | map:'name' | join %></p>";
+            var result = ejs.render(template, {
+                users: [
+                  { name: 'tj' },
+                  { name: 'mape' },
+                  { name: 'guillermo' }
+                ]
+            });
+            console.log(result);
+        });
+    </script>
+
+</body>
+</html>
